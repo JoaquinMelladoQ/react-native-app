@@ -38,7 +38,7 @@ export default ({ navigation }) => {
         data={posts.filter(x => x.userId === userId)}
         keyExtractor={x => String(x.id)}
         renderItem={({ item }) => <ListItem 
-          onPress={() => navigation.navigate('Posts', { user_id: item.id })} 
+          onPress={() => navigation.navigate('Detail', { title: item.title, body: item.body })} 
           title={item.title}
         />}
       />}
