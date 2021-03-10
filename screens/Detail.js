@@ -1,5 +1,4 @@
 import React from 'react';
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, Text } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -11,11 +10,13 @@ const styles = StyleSheet.create({
   },
 });
 
-export default () => {
+export default ({ navigation }) => {
+  const body = navigation.getParam('body')
+  const title = navigation.getParam('title')
   return (
     <View style={styles.container}>
-      <Text>APP!!!!</Text>
-      <StatusBar style="auto" />
+      <Text>{title}</Text>
+      <Text>{body}</Text>
     </View>
   );
 }
