@@ -1,6 +1,7 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View, Text, FlatList } from 'react-native';
+import { StyleSheet, View, FlatList } from 'react-native';
+import ListItem from '../components/ListItem';
 
 const styles = StyleSheet.create({
   container: {
@@ -12,8 +13,8 @@ const styles = StyleSheet.create({
 });
 
 const users = [
-  { id: 1, name: 'Leanne'},
-  { id: 2, name: 'Ervin'},
+  { id: '1', name: 'Leanne'},
+  { id: '2', name: 'Ervin'},
 ]
 
 export default () => {
@@ -22,7 +23,7 @@ export default () => {
       <FlatList
         data={users}
         keyExtractor={x => x.id}
-        renderItem={({ item }) => <Text>{item.name}</Text>}
+        renderItem={({ item }) => <ListItem title={item.name}/>}
       />
       <StatusBar style="auto" />
     </View>
