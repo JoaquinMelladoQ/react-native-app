@@ -13,8 +13,10 @@ const styles = StyleSheet.create({
 export default ({ navigation }) => {
   const body = navigation.getParam('body')
   const title = navigation.getParam('title')
+  const username = navigation.getParam('username')
   return (
     <View style={styles.container}>
+      <Text>{username}</Text>
       <Text>{title}</Text>
       <Text>{body}</Text>
     </View>

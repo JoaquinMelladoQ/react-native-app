@@ -16,6 +16,7 @@ const styles = StyleSheet.create({
 
 export default ({ navigation }) => {
   const userId = navigation.getParam('user_id') 
+  const username = navigation.getParam('username') 
   const [loading, setLoading] = useState(true)
   const [posts, setPosts] = useState([])
 
@@ -37,10 +38,7 @@ export default ({ navigation }) => {
         style={styles.list}
         data={posts.filter(x => x.userId === userId)}
         keyExtractor={x => String(x.id)}
-        renderItem={({ item }) => <ListItem 
-          onPress={() => navigation.navigate('Detail', { title: item.title, body: item.body })} 
-          title={item.title}
-        />}
+        renderItem={({ item }) => <ListItem onPress={() => navigation.navigate('Detail', { title: item.title, body: item.body, name: username })} title={item.title}/>}
       />}
   </View>
   );
