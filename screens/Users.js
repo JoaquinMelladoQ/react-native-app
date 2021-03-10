@@ -25,14 +25,17 @@ export default () => {
     setLoading(false)
   }
 
-useEffect = (() => fetchUsers(), [])
+  useEffect(() => {
+    fetchUsers()
+  }, [])
+
   return (
     <View style={styles.container}>
       {loading ? <Text>Cargando...</Text> : 
       <FlatList
         style={styles.list}
         data={users}
-        keyExtractor={x => x.id}
+        keyExtractor={x => String(x.id)}
         renderItem={({ item }) => <ListItem title={item.name}/>}
       />
       }
